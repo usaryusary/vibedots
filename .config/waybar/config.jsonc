@@ -1,0 +1,72 @@
+{
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "top",
+  "height": 32,
+  "spacing": 0,
+  "margin-top": 4,
+  "margin-left": 8,
+  "margin-right": 8,
+  "modules-left": ["custom/launcher", "hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["network", "bluetooth", "pulseaudio", "battery", "tray"],
+  "custom/launcher": {
+    "format": "❖",
+    "on-click": "rofi -show drun -show-icons",
+    "tooltip": false
+  },
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "active": "✦",
+      "default": "∙"
+    },
+    "persistent-workspaces": {
+      "1": [], "2": [], "3": [], "4": [], "5": [],
+      "6": [], "7": [], "8": [], "9": [], "10": []
+    }
+  },
+  "clock": {
+    "format": "{:%A %H:%M %d.%m.%Y}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "temperature": {
+    "interval": 3,
+    "critical-threshold": 80,
+    "format": " {temperatureC}°C",
+    "format-critical": " {temperatureC}°C"
+  },
+  "network": {
+    "format-wifi": "",
+    "format-ethernet": "ETH",
+    "format-disconnected": "NO NET",
+    "tooltip-format-wifi": "{essid} {signalStrength}%",
+    "on-click": "kitty sh -c nmtui",
+    "interval": 3
+  },
+  "bluetooth": {
+    "format": "",
+    "format-connected": " {device_alias}",
+    "format-disabled": "",
+    "on-click": "blueman-manager"
+  },
+  "pulseaudio": {
+    "format": "󰕾",
+    "format-muted": "󰝟",
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+  "battery": {
+    "interval": 5,
+    "format": "󰁹 {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "states": {"warning": 20, "critical": 10}
+  },
+  "tray": {
+    "icon-size": 13,
+    "spacing": 6
+  }
+}
